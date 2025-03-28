@@ -1,0 +1,28 @@
+name: Extract Any Zip File
+
+on:
+  workflow_dispatch:
+    inputs:
+      zip_file:
+        description: 'The name of the zip file to extract'
+        required: true
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Extract zip file
+      run: |
+        unzip -o "${{ github.event.inputs.zip_file }}" -d extracted_files/
+
+    - name: Commit extracted files
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add extracted_files/
+        git commit -m 'Extract zip file contents'
+        git push
