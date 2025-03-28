@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9fa;
+  color: #0A2540;
+  line-height: 1.6;
+}
+header {
+  background: linear-gradient(to right, #0a5e67, #1aa39a);
+  padding: 80px 20px 40px;
+  text-align: center;
+  color: white;
+}
+header img {
+  max-width: 90px;
+  margin-bottom: 15px;
+}
+header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.btn {
+  background-color: #ffffff;
+  color: #0a5e67;
+  border: none;
+  padding: 14px 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background-color: #e0f4f2;
+}
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+.card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.card h3 {
+  font-size: 1.2rem;
+  color: #0a5e67;
+  margin-top: 15px;
+}
+.card p {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+.card img {
+  height: 40px;
+}
+.trust-logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.trust-logos img {
+  height: 40px;
+  opacity: 0.7;
+}
+.cta {
+  text-align: center;
+  background-color: #f1fbfa;
+}
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #ffffff;
+  font-size: 0.9rem;
+  color: #666;
+}
+footer a {
+  color: #0a5e67;
+  text-decoration: none;
+  margin: 0 10px;
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+}
