@@ -1,9 +1,11 @@
-name: Extract Zip File
+name: Extract Any Zip File
 
 on:
-  push:
-    paths:
-      - '*.zip'  # Triggers the action when a zip file is pushed
+  workflow_dispatch:
+    inputs:
+      zip_file:
+        description: 'The name of the zip file to extract'
+        required: true
 
 jobs:
   extract:
@@ -15,14 +17,12 @@ jobs:
 
     - name: Extract zip file
       run: |
-        for file in *.zip; do
-          unzip -o "$file" -d "${file%.*}"
-        done
+        unzip -o "${{ github.event.inputs.zip_file }}" -d extracted_files/
 
     - name: Commit extracted files
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git add .
+        git add extracted_files/
         git commit -m 'Extract zip file contents'
         git push
