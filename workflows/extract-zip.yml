@@ -1,0 +1,28 @@
+name: Extract Zip File
+
+on:
+  push:
+    paths:
+      - '*.zip'  # Triggers the action when a zip file is pushed
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Extract zip file
+      run: |
+        for file in *.zip; do
+          unzip -o "$file" -d "${file%.*}"
+        done
+
+    - name: Commit extracted files
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add .
+        git commit -m 'Extract zip file contents'
+        git push
